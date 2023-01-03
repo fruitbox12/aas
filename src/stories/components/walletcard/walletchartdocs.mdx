@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Wallet Chart
+
+<br />
+
+## Uses
+
+A visual breakdown of the user's active ETH wallet.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+    className,    // A custom className from the parent
+    tokens,       // An array of numbers
+}
+```
+
+### Variables to Note
+
+| Variable      | Type         | Purpose                                                                                      |
+| ------------- | ------------ | -------------------------------------------------------------------------------------------- |
+| `className`   | string       | Custom `className` passed in from parent                                                     |
+| `tokens`      | number array | Values of the tokens in the same denomination                                                |
+| `pie`         |              | Position of each slice determined by d3                                                      |
+| `height`      | number       | Height of the resulting `svg`                                                                |
+| `width`       | number       | Width of the resulting `svg`                                                                 |
+| `primary`     | string       | Primary theme color in hex format                                                            |
+| `secondary`   | string       | Secodnary theme color in hex format                                                          |
+| `interpolate` |              | How d3 handles automatic coloring based on the passed in strings (`primary` and `secondary`) |
+
+## Expected Behavior
+
+The colors of each slice should be a gradient based on `primary`, `secondary`, and the length of `tokens`. <br />
+Resulting pie chart is an svg that is an accurate visual break down given all values in `tokens` are in the
+same token (aka comparing apples to apples; not apples to oranges)
+
+## Rendered Example
+
+[In the `WalletCard`](?path=/story/components-wallet-card-full-card--alpha)
+
+<Canvas>
+   <Story id={"components-wallet-card-full-card--alpha"} />
+</Canvas>

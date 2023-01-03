@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Oracle Market Table
+
+<br />
+
+## Uses
+
+This component allows the user to browse potential oracles to browse through in a table format.
+
+## Children Components
+
+Imports the header cells from `src/components/oraclemarkettable/marketheadercell.js`. <br />
+Imports the body rows from `src/components/walletcard/qrmodal.js`. <br />
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+    className,      // A custom className for sizing and positioning
+    oracleData,     // The market data
+}
+```
+
+Each item `i` in `oracleData` is an `Oracle` object.
+
+### Symbols to Note
+
+| Variable                  | Type         | Purpose                                                                                  |
+| ------------------------- | ------------ | ---------------------------------------------------------------------------------------- |
+| `className`               | string       | Custom className for sizing and positioning                                              |
+| `oracleData`              | object array | Array of objects containing the market data to sort and show                             |
+| `headCells`               | object array | Contains the labels and sorting controls for the header cells                            |
+| `descendingComparator`    | function     | Comparator for sorting                                                                   |
+| `getComparator`           | function     | Adjusts results of comparator if the sort is ascending or descending                     |
+| `stableSort`              | function     | Sorting method used                                                                      |
+| `order`                   | string       | Direction of sorting (`"asc"` or `"desc"`)                                               |
+| `orderBy`                 | string       | Which column to sort by given the selected header cell                                   |
+| `page`                    | number       | Page number the table is on                                                              |
+| `dense`                   | boolean      | Constrols `"compact mode"`                                                               |
+| `rowsPerPage`             | number       | Number of rows to appear at max at one time                                              |
+| `handleRequestSort`       | function     | Passed to header cells to control sorting                                                |
+| `createSortHandler`       | function     | Event handler for the sorting change                                                     |
+| `handleChangeRowsPerPage` | function     | Changes `rowsPerPage`                                                                    |
+| `perPage`                 | number array | Selection of how many items to show per page                                             |
+| `handleChangeDense`       | function     | Event handler to enable `"compact mode"`                                                 |
+| `emptyRows`               | number       | Handles adding blank rows to the table if the last page has less than `rowsPerPage` rows |
+| `showAll`                 | boolean      | Says weather or not to show all of the oracles in a single page                          |
+| `handleShowAll`           | function     | Event handler to enable/disable showing all rows in a singple page                       |
+
+<br />
+
+Each item `i` in `headCells`:
+
+```JavaScript
+headCells[i] = {
+    id,         // string: the category to sort by and category
+    numeric,    // boolean: the category is numeric
+    label,      // string: the category's name
+}
+```
+
+The `id` of `headCells` need to match the names of the fields passed in through `oracleData`
+
+## Expected Behavior
+
+Clicking on any of the header rows should change the sort category to the chose column. Proceding clicks on the same header
+changes the direction of the sort. <br />
+Sorting direction is denoted by an arrow icon. <br/>
+Compact mode is off by defualt. Turning it on reduces the padding in all rows. <br />
+Range of rows shown is stated in the pagination. <br />
+Changing the rows per page resets the pagination. <br />
+Fluid to parent container but can be overridden by parent styles and custom `className`. <br />
+Switching on the "Show All" switch should show all availabl;e oracles in the table. Switching it off should revert the number of rows back to the default number. <br />

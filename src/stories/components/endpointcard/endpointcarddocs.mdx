@@ -1,0 +1,60 @@
+# Endpoint Card
+
+<br />
+
+## Uses
+
+This component allows the user to see a quick overview of the market value of the oracle's endpoint.
+
+## Children Compoonents
+
+Imports `ProviderCurve` from `src/components/providercurve/ProviderCurve`. <br />
+Imports `BondIcon` from from `src/components/icons/bondicon`. <br />
+Imports `UnbondIcon` from from `src/components/icons/unbondicon`. <br />
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   endptName,
+   oracleName,
+   oracleAddress,
+   coefficientArr,
+   markdownLink,
+   jsonLink,
+   dotPrice,
+   dotsBonded,
+   dotLimit,
+   dotsIssued,
+}
+```
+
+### Symbols to Note
+
+| Variable         | Type         | Purpose                                                     |
+| ---------------- | ------------ | ----------------------------------------------------------- |
+| `className`      | string       | Custom className for sizing and positioning                 |
+| `oracleName`     | string       | Name of this specific oracle                                |
+| `oracleAddress`  | string       | Address of this specific oracle                             |
+| `endptName`      | string       | Name of this specific endpoint                              |
+| `coefficientArr` | number array | Coefficient array of this specific endpoint's bonding curve |
+| `markdownLink`   | string       | Link to the endpoint's markdown file                        |
+| `jsonLink`       | string       | Link to the endpoint's JSON schema                          |
+| `dotPrice`       | number       | Current ZAP/DOT                                             |
+| `dotsBonded`     | number       | The number of DOTS currentsly bonded                        |
+| `dotLimit`       | number       |                                                             |
+| `dotsIssued`     | number       |                                                             |
+| `classes`        | number       | The CSS classes created by MUI                              |
+
+NB: Most of these symbols are the exact same as the fields noted in the `Oracle` class found in `src/reducers/classes/oracledata.js`
+
+## Expected Behavior
+
+View is fluid. Restriced only by being palced within a container in a HOC.<br />
+Viewports smaller than MUI's `md`, renders as a single column, and the bond buttons are hidden. <br />
+Viewports larger than MUI's `md`, renders as dual column. <br />
+Bond and un bond buttons show in the active palette's primary color. <br />
+If the `oracleName` prop is not provided, the Link will be hidden. Otherwise it will be shown with a truncated version of the `oracleAddress` prop passed in.

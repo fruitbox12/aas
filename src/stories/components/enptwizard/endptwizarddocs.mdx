@@ -1,0 +1,149 @@
+<!--- endptwizard.stories.mdx -->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Wizard from "../../../views/endpointwizard/wizard";
+
+<Meta title="MDX/Endpoint Wizard" component={Wizard} />
+
+# New Endpoint Wizard
+
+<br />
+
+## Uses
+
+This is the component the user interacts with to list a new oracle for the ZAP marketpalce.
+Contains all of the logic of the wizrd
+
+## Children Components
+
+`WizardView` from `src/views/endpointwizard/wizardview.js` handles the UI of the wizard.
+
+## Implementation
+
+### Initial `state`
+
+How the wizard stores the necessary data
+
+```JavaScript
+this.state = {
+    step: 0,
+    builder: 0,
+    done: 0,
+    emptyProvider: false,
+    emptyEndpoint: false,
+    invalidArray: false,
+    provider: "",
+    endpoint: "",
+    markdownLink: "",
+    jsonLink: "",
+    curveArray: [],
+    arrayErrorMsg: "",
+}
+```
+
+For Storybook purposes so that the state can be influenced
+
+```JavaScript
+    this.state = {
+        ...this.state,
+        ...props.state,
+    };
+```
+
+<br />
+
+### The `Wizard`'s State
+
+| Field of `this.state` | What it controls                                                                                    |
+| --------------------- | --------------------------------------------------------------------------------------------------- |
+| `step`                | Controls which screen of the wizard to show                                                         |
+| `builder`             | Controls which curve initializer to show when `step===2`                                            |
+| `done`                | Controls how far forward the user can jump between steps if they want to go back to a previous step |
+| `emptyProvider`       | Boolean if the "Provider Name" field should be in an `error` state                                  |
+| `emptyEndpoint`       | Boolean if the "Endpoint Name" field should be in an `error` state                                  |
+| `invalidArray`        | Boolean if the "Argument Array" field should be in an `error` state                                 |
+| `provider`            | String of the name of the provider (active wallet)                                                  |
+| `endpoint`            | String of the name of the oracle to list on ZAP                                                     |
+| `markdownLink`        | String of the link to the markdown file of the oracle                                               |
+| `jsonLink`            | String of the link to the JSON schema of the oracle                                                 |
+| `curveArray`          | Array of numbers in the format needed to instantiate a bonding curve                                |
+| `arrayErrorMsg`       | String of the error encountered when parsing the `curveArray` from string to array of numbers       |
+
+`step`
+
+-  0: Oracle endpoint details
+-  1: Choose a curne initializer
+-  2: Initialize the curve using the selected initializer
+-  3: Confirm all details before submitting to the blockchain
+   <br />
+
+`builder`
+
+-  0: No initializer was chosen yet
+-  1: Visual initializer using drag to draw
+-  2: Argumentive curve initializer using a manual input array
+   <br />
+
+## Expected Behavior
+
+### Step 1: Add Oracle Endpoint Details
+
+The initial state should be:
+
+```JavaScript
+this.state = {
+    step: 0,
+    builder: 0,
+    done: 0,
+    emptyProvider: false,
+    emptyEndpoint: false,
+    invalidArray: false,
+    provider: "",
+    endpoint: "",
+    markdownLink: "",
+    jsonLink: "",
+    curveArray: [],
+    arrayErrorMsg: "",
+}
+```
+
+... unless the Zap Dapp detects the current active account is a proivder.
+In that case, the `provider` field should be autopopulated and locked. <br />
+If the `Next` button is pressed
+
+-  While `provider` (`Provider Name` field) and `endpoint` (`Endpoint Name` field) are empty, then the fields on the user interface
+   should turn red for the user's attention, and not move to the next page.
+-  When the `provider` and `endpoint` are provided, then the wizard moves to the next screen.
+
+### Step 2: Choose a Curve Initializer
+
+The user is prompted for how they prefer to instantiate their bonding curve.
+
+### Step 3: Initialize the Curve Using the Selected Initializer
+
+The user creates their bonding curve using the initializer they selected.
+After this step, thge initializer setting is "locked in". Jumping between pages should not change which initializer is used, unless
+they go to step 2 and choose another one.
+
+#### Visual Curve Initializer (Drag to Edit)
+
+Shows the bezier cuve with draggable points. Presets are shown on the side of the graph.
+
+#### Argument Curve Initializer (Type in Array)
+
+Shows a blank graph at first. Graph updates as the entered array is parsed. <br />
+If the `Next` button is pressed
+
+-  While the entered array doesn't follow the proper format in the docs, then the field on the user interface
+   should turn red for the user's attention, and not move to the next page.
+-  When the array entered follows the proper formatting, then the wizard moves to the next screen.
+
+### Step 4: Confirm All Details Before Submitting to the Blockchain
+
+This is the final screen before the web3 call are made. The user confirms all the details of their oracle listing including the:
+
+-  Provider Name
+-  Endpoint Name
+-  Link to the JSON Schema
+-  Link to the markdownLink
+-  Bonding curve

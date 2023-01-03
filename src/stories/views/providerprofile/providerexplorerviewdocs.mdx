@@ -1,0 +1,54 @@
+# Oracle Provider View
+
+<br />
+
+## Uses
+
+This page allows the user to see relevant information concerning the oracle that they have selected, including:
+
+-  The oracle's address
+-  The oracle's name
+-  The number of endpoints provided
+-  Each endpoints they provide
+
+## Children Components
+
+`Page` from `src/components/Page.js` wraps the whole view. <br />
+`Header` from `src/views/endpointwizard/header.js` serves as visual sugar for page navigation. <br />
+`NameCard` from `src/components/namecard.js` to dispaly the oracle's name. <br />
+`ProviderDetailsCard` from `src/components/providerdetailscard.js` to display information regarding the specific oracle. <br />
+`EndpointCard` from `src/components/endpointcard.js` to dispaly informatiopn regarding the individual endpoints provided.
+
+## Implementation
+
+Follows the format followed by the other dashboard views:
+
+-  The whole view is wrapped by a `Page` component.
+-  A Material UI `Container` wraps everything inside `Page`.
+-  A `Header` specific to this view is at the top of the page.b
+-  There's a Material UI `Paper` component serving as a background.
+
+### Props Required
+
+```JavaScript
+props = {
+    className,
+    providerAddress
+}
+```
+
+### Symbols to Note
+
+| Variable          | Type   | Purpose                                                            |
+| ----------------- | ------ | ------------------------------------------------------------------ |
+| `className`       | string | Custom className for sizing and positioning                        |
+| `providerAddress` | string | The address of the relevant provider                               |
+| `allOracles`      | object | All of the oracles in the store                                    |
+| `asArray`         | array  | The object converted into an array                                 |
+| `fromProvider`    | array  | An array of the endpoints only from this specified provider/oracle |
+
+## Expected Behavior
+
+Should only be accessible once the user in confirmed to have "logged in" using some W3 provider / enabled Ethereum wallet. <br/>
+Accessible by the user selecting a specific oracle to view through the marketpalce. <br/>
+With viewports smaller than MUI's `md` the options to bond are hidden.

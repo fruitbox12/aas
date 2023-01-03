@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Expanded Oracle Market
+
+<br />
+
+## Uses
+
+This is the page the user goes to view potential oracles to bond to.
+
+## Children Components
+
+`Page` from `src/components/Page.js` wraps the whole view. <br />
+`Header` from `src/views/endpointwizard/header.js` serves as visual sugar for page navigation. <br />
+`PerformanceCard` from `src/components/marketplacecomponents/performancecards` tos display the uder's balances. <br />
+`EndpointCard` from `src/components/endpointcard.js` to dispaly the oracles in a card view. <br />
+`OracleEndptListCard` from `src/components/oracleendptlistcard.js` to dispaly the oracles in a tabular view.
+
+## Implementation
+
+Serves as a view for the Oracle Marketpalce with different ways to view the oracles. <br />
+Follows the format followed by the other dashboard views:
+
+-  The whole view is wrapped by a `Page` component.
+-  A Material UI `Container` wraps everything inside `Page`.
+-  A `Header` specific to this view is at the top of the page.
+-  There's a Material UI `Paper` component serving as a background.
+
+### Symbols to Note
+
+| Variable            | Type         | Purpose                                                                                 |
+| ------------------- | ------------ | --------------------------------------------------------------------------------------- |
+| `classes`           | object       | MUI generated classes for sizing and positioning                                        |
+| `listView`          | boolean      | Control if the cards or tables appear to list the endpoints                             |
+| `setListView`       | function     | Sets the value of `listView`                                                            |
+| `allOracles`        | object       | Object of all the oracles in the store                                                  |
+| `asArray`           | number array | `allOracles` as an array                                                                |
+| `sortedEndpts`      | object       | Object of array where the key is the provider address and the value is an Oracle object |
+| `providerAddresses` | string       | Array of the unique provider addresses of all the oracles                               |
+| `handleToogleView`  | string       | function passed to components to allow the user to change the view                     |
+
+## Expected Behavior
+
+Should only be accessible once the user in confirmed to have "logged in" using some W3 provider / enabled Ethereum wallet.
+Should be mobile responsive (aka stays user friendly despite viewport size)

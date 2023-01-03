@@ -1,0 +1,44 @@
+# Create Tokenized Products & Services with Zap Protocol
+
+
+## **Zap ERC20 Token Factory** 
+
+### Token Providers
+
+Token Providers create Bonding Curves which mint ERC20 tokens. These tokens, unlike DOTS, can be used outside the Zap Platform.
+
+Create Secondary Tokens with [TokenDotFactory.sol](https://github.com/zapproject/zap-ethereum-api/blob/master/contracts/lib/platform/TokenDotFactory.sol) Templates.
+
+The web admin provides an interface for engaging with token providers via the 'Token Tools' menu and deploying new token providers based on preloaded template artifacts.
+
+The below provider contract allows users to initialize new curves and provide their own bond and unbound functionality, which can be further customized. When a user bonds or unbonds, an ERC20 token is minted or burned respectively.
+
+Token factory providers may contain the following:
+
+Since Endpoint specifiers must be unique for any given provider, new curves initialized by onchain token factory providers must have unique Endpoint specifiers. Ex PlayerA, PlayerB NOT PlayerA, PlayerA.
+
+Note that below imports reflect the file structure of [Zap contract repo](https://github.com/zapproject/zap-ethereum-api/edit/master/contracts/lib/platform/TokenDotFactory.sol)​.
+
+
+## Example Smart Contract Templates for Use-Cases
+
+### When matching algorithmic ERC20 token creation with bonding curve templates, Zap Protocol users have access to tokens that can be used for voting, crowdfunding and various dapp use-cases.
+
+## The templates can be found here:
+
+* [https://github.com/zapproject/zap-ethereum-api/tree/master/contracts](https://github.com/zapproject/zap-ethereum-api/tree/master/contracts)
+
+* [https://github.com/zapproject/zap-ethereum-api/tree/master/contracts/lib/platform](https://github.com/zapproject/zap-ethereum-api/tree/master/contracts/lib/platform)
+
+Here are a few examples of use cases that can be created using these templates. Remember, you can customize these templates to match your specific needs and design your own Dapp use case.
+
+Decentralized Autonomous Organization (DAOs)
+* Users can create mutually agreed upon governance arrangements through bonding curves. Curves are generated for each proposal within the organization and individuals are able to vote on the proposals they want to support by bonding ZAP. At the end of the voting time period, the most bonded proposal will recieve all the ZAP bonded from the competing proposals in order to fund the winning proposal.
+
+Decentralized Futures Market
+* Two bonding curves are created to issue long and short position tokens on an asset. After a pre-set period of time, the smart contract will check the price of asset. The losing curve pays out the staked value as a dividend to the holders of the winning curve's token.
+
+Decentralized Bounties and Competitions
+* Generate one master bonding curve with a problem to be solved, and individuals stake value to this curve. Participants who want to enter the competition would each have their own bonding curve. The community would then speculate on who they beleive to be the winner would recieev the value staked by the losing curves.
+
+

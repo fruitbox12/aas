@@ -1,0 +1,106 @@
+import image1 from 'src/views/docs/tools/7058BA04-363C-4A97-89E7-09B6E2CB2DDA_1_105_c.jpeg';
+import image2 from 'src/views/docs/tools/F498B428-C995-4DCE-B38C-C34C046246EA.png';
+import image3 from 'src/views/docs/tools/unnamed-3.png';
+import image4 from 'src/views/docs/tools/D8D556FD-A0E0-4FF4-9DB7-CB8F430D790D_4_5005_c.jpeg';
+import image5 from 'src/views/docs/tools/41CFF2E6-DDC7-474C-98B5-F15145DC6104.png';
+import image6 from 'src/views/docs/tools/F351F265-D57D-485F-B8E9-0BC1CAB69C7F_4_5005_c.jpeg';
+import image7 from 'src/views/docs/tools/A48C96FA-6EC8-43A4-81CD-A82F333ECEFD_4_5005_c.jpeg';
+import image8 from 'src/views/docs/tools/1011C293-27F4-4BE1-9865-3D7FB5FE9726_4_5005_c.jpeg';
+
+# Zap Protocol Contracts & Tools
+
+
+## Contract Overview
+
+[Main Zap Protocol Contracts](https://tech.zap.org/docs/overview.html)
+
+Zap Protocol’s platform smart contracts exist on the Ethereum blockchain (Mainnet and Ropsten/Rinkeby Testnet also available) and define the functionality and interactions between entities using the Zap Protocol. Zap Contracts are the backbone of the Zap Protocol and provide keys features such as:
+
+
+
+*   Facilitation of Oracles/Service creation with customizable Bonding Curve pricing models.
+*   Enable data queries and responses.
+*   Manage Subscriptions.
+*   Facilitate Token creation based on the Bonding Curve pricing model.
+
+Zap Protocol Consists Of 4 Main Contracts :
+
+Registry Contract :
+
+
+
+*   For Data/Service providers, facilitate creating/managing Oracles and Endpoints. Data about Oracles are stored and viewed publicly on the blockchain.
+
+Bondage Contract :
+
+
+
+*   Allow users to bond/unbond to Oracles. Users can bond ZAP Tokens to receive DOTS/Secondary Tokens or unbond DOTS/Secondary Tokens to get ZAP Tokens back, all through a Bondage contract.
+*   Holds DOTS/SecondaryTokens in escrow during subscriptions periods or pending queries. 
+
+Dispatch Contract :
+
+
+
+*   Handles the delivery of queried data from data providers to user contracts. 
+
+Arbiter Contract :
+
+
+
+*   Handle subscriptions activity, including the subscription’s blocktime start/end, and additional information about subscriptions.
+
+
+<img src={image1} alt="Image alt" />
+
+
+## Mainnet Addresses: 
+
+*   Coordinator: [0xb007eca49763f31edff95623ed6c23c8c1924a16](https://etherscan.io/address/0xb007eca49763f31edff95623ed6c23c8c1924a16)
+*   Registry: [0xc7ab7ffc4fc2f3c75ffb621f574d4b9c861330f0](https://etherscan.io/address/0xc7ab7ffc4fc2f3c75ffb621f574d4b9c861330f0)
+*   Dispatch: [0xac0f9620c5940085eb5f3a07210d890aa4ceee11](https://etherscan.io/address/0xac0f9620c5940085eb5f3a07210d890aa4ceee11)
+*   Bondage: [0x188f79b0a8edc10ad53285c47c3feaa0d2716e83](https://etherscan.io/address/0x188f79b0a8edc10ad53285c47c3feaa0d2716e83)
+*   Arbiter: [0x131e22ae3e90f0eeb1fb739eaa62ea0290c3fbe1](https://etherscan.io/address/0x131e22ae3e90f0eeb1fb739eaa62ea0290c3fbe1)
+*   Database: [0x02647d32b2633cf89434d8f371658b6a74d55bf9](https://etherscan.io/address/0x02647d32b2633cf89434d8f371658b6a74d55bf9#readContract)
+*   TokenDotFactory: [0x73c082CC3bD5360B1003983752c3641D0d4E34f6](https://etherscan.io/address/0x73c082CC3bD5360B1003983752c3641D0d4E34f6#readContract)
+
+## Kovan Addresses:
+
+*   Coordinator: [0xfcE9dcb88a4B80b45a961eED8d3ceD635967771E](https://kovan.etherscan.io/address/0xfcE9dcb88a4B80b45a961eED8d3ceD635967771E)
+*   Registry: [0x6984cD30b1161e7bE25E25E11409420B7965CDEc](https://kovan.etherscan.io/address/0x6984cD30b1161e7bE25E25E11409420B7965CDEc)
+*   Dispatch: [0x69853E6b7C9f03743D0D107BAE9882e7f970F9Bd](https://kovan.etherscan.io/address/0x69853E6b7C9f03743D0D107BAE9882e7f970F9Bd)
+*   Bondage: [0x0A11Fd92591C307385a580746e3542643034b89E](https://kovan.etherscan.io/address/0x0A11Fd92591C307385a580746e3542643034b89E)
+*   Arbiter: [0x7a567419fd2F2D89237B1BDb8D4d0795Cc05a8fc](https://kovan.etherscan.io/address/0x7a567419fd2F2D89237B1BDb8D4d0795Cc05a8fc)
+*   Database: [0xfcE9dcb88a4B80b45a961eED8d3ceD635967771E](https://kovan.etherscan.io/address/0xfcE9dcb88a4B80b45a961eED8d3ceD635967771E)
+*   TokenDotFactory: [0x2145f33cf44d46e5d51683a4022235D025730aFB](https://kovan.etherscan.io/address/0x2145f33cf44d46e5d51683a4022235D025730aFB)
+
+
+## Registry Contract
+
+**Registry Contract:** For Data/Service providers to facilitate creating/managing Oracles and Endpoints. Data about Oracles is stored and viewed publicly.
+
+<img src={image2} alt="Image alt" />
+
+## Bondage Contract 
+
+*   Allow users to bond/unbond to Zap Oracles. Users bond ZAP Tokens to gain DOTS / Secondary-Tokens or unbond DOTS / Secondary-Tokens to get ZAP Tokens back, all through a Bondage contract.
+*   Holds DOTS / Secondary Tokens in escrow during subscriptions periods or pending queries
+
+<img src={image3} alt="Image alt" />
+
+## Dispatch Contract
+
+ Handle delivery of query data from data providers to user contracts
+
+
+<img src={image4} alt="Image alt" />
+
+## Arbiter Contract
+
+
+
+*   Handle subscriptions service activity. Includings the start & end points and information about subscriptions.
+
+
+<img src={image5} alt="Image alt" />
+

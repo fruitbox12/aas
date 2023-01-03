@@ -1,0 +1,10 @@
+{
+  "viewportWidth": 1280,
+  "viewportHeight": 950,
+  "baseUrl": "http://localhost:3000",
+  "pluginsFile": false,
+  "fixturesFolder": false,
+  "supportFile": "cypress/support/index.js",
+  "video": false,
+  "defaultCommandTimeout": 5000
+}

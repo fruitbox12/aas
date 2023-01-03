@@ -1,0 +1,29 @@
+# Login Page Component
+
+<br />
+
+## Uses
+
+Allow a user to log into the dashboard either using Metamask directly or the seed phrase and selected network.
+This component is meants to be rendered "/login" page with the current header on top.
+
+## Implementation
+
+Imports the png logo from `public/static`. <br/>
+All other elements of the component are created using the Material-UI library along with html/css.
+
+## Expected Behavior
+
+Using the top Login button allows a user to log into the site using metamask directly (if installed on their browser).
+Below the divider, a user can use their mnemonic (seed phrase) to login into a selected network. (Please see To Do below.)
+
+## To Integrate
+- Add this component to `views/auth/loginview/index.js` underneath the header.
+- Add Metamask login function to top Login button.
+- Need to create a new ticket to for the mnemonic login function.
+- Add terms and agreement function. (Can't log in without selecting the checkbox.)
+
+
+## Renderings
+
+<Login />

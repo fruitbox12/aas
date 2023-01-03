@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/Endpoint Wizard/Steps/Drag Curve Builder" />
+
+# Oracle Endpoint Details
+
+<br />
+
+## Uses
+
+This component allows the user to input information relative to their oracle to be listed.
+
+## Implementation
+
+Takes in a callback function to pass updates the state in the `Wizard` and displays that information in 
+the provided text fields. <br />
+Accessible and editable fields:
+
+| In the `Wizard`'s state | Field in the UI | 
+|---|---|
+| provider| Provider Name | 
+| endpoint | Endpoint Name | 
+| markdownLink | Link to Markdown file | 
+| jsonLink | Link to JSON Schema | 
+
+## Expected Behavior
+
+This is the first page of the wizard. <br />
+If the Dapp detects that the active account is already a provider, that field is auto-populated.
+
+## Rendered Example
+
+[In the `Wizard`](/?path=/story/components-endpoint-wizard-full-wizard--alpha)
+
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--alpha"} />
+</Canvas>

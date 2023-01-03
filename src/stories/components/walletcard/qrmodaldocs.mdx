@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# QR Code Modal
+
+<br />
+
+## Uses
+
+This appears when the user clicks the `Get QR Code` button in the `WalletCard`
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+    address,      // The address of the current active wallet
+    handleClose,  // A call back function to tell the modal to close
+    open          // A controlling boolean that says if the modal should appear
+}
+```
+
+Upon mounting, there's an API call to Google's Chart APU using `useQrCode(address)` from `src/api/qrgenerator.js`. <br />
+
+### Variables to Note
+
+| Variable      | Type        | Purpose                                                   |
+| ------------- | ----------- | --------------------------------------------------------- |
+| `address`     | string      | The active ETH wallet address                             |
+| `handleClose` | function    | A call back to tell the modal to close                    |
+| `open`        | boolean     | Says if the modal should appear                           |
+| `qrCodeTag`   | DOM Element | The `<img />` holding the QR code                         |
+| `qrError`     | number      | Tells if there was an issue calling the Google Charts API |
+| `qrLoading`   | number      | If the call to the Google Charts API is being waited on   |
+
+## Expected Behavior
+
+The Google Charts API should be called once only when the component mounts. <br />
+There is a "Copy to Clipboard" button that copies `address` to the users' system's clipboard. <br />
+Clicking the "Close" button or anywhere off of the modal should close it. (NB: this behavior will not work
+in the standalone of the modal on storybook due to the call back being set to an empty function)<br/>
+
+## Rendered Example
+
+[In the `WalletCard` when you press the `Get QR Code` Button](?path=/story/components-wallet-card-full-card--alpha)
+
+<Canvas>
+   <Story id={"components-wallet-card-full-card--alpha"} />
+</Canvas>

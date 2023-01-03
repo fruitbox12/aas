@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/Endpoint Wizard/Steps/Confirm Listing" />
+
+# Confirm Listing
+
+<br />
+
+## Use
+
+This component allows the user to finalize and all the details of their oracle before submitting their bonding curve
+to the blockchain.
+
+## Children Components
+
+`BezierCurve` _component file location tbd_
+
+## Implementation
+
+Takes in all the data stored in `Wizard` to display it to the user <br />
+_Most_ of the logic is handled by the parent `Wizard` component. Array conversion into a human readable string is done here
+to prevent unecessary function calls.
+
+## Expected Behavior
+
+Can only be reached once all previous steps are completed. Is accessible only if all of the provided data in the previous
+steps is valid. <br />
+None of the data is editable at this screen.
+
+## Rendered Example
+
+[In the `Wizard` when the user used the visual initializer](/?path=/story/components-endpoint-wizard-full-wizard--epsilon)
+
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--epsilon"} />
+</Canvas>
+
+[In the `Wizard` when the user used the argument initializer](/?path=/story/components-endpoint-wizard-full-wizard--zeta)
+
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--zeta"} />
+</Canvas>

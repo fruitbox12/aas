@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Oracle Market
+
+<br />
+
+## Uses
+
+This is the page the user goes to view potential oracles to bond to.
+
+## Children Components
+
+`Page` from `src/components/Page.js` wraps the whole view. <br />
+`Header` from `src/views/endpointwizard/header.js` serves as visual sugar for page navigation. <br />
+`OracleMarketTable` from `src/stories/components/oraclemarkettable` is the component the user interacts with to view listed oracles.
+
+## Implementation
+
+Serves as a view for the dashboard. <br />
+Follows the format followed by the other dashboard views:
+
+-  The whole view is wrapped by a `Page` component.
+-  A Material UI `Container` wraps everything inside `Page`.
+-  A `Header` specific to this view is at the top of the page.
+-  The "main component" (in this case the `OracleMarketView`) is wrapped in a Material UI `Box`.
+-  There's a Material UI `Paper` component serving as a background.
+
+### Symbols to Note
+
+| Variable     | Type   | Purpose                                                                                   |
+| ------------ | ------ | ----------------------------------------------------------------------------------------- |
+| `classes`    | object | `className`s provided by MUI's JSS generator                                              |
+| `dispatch`   | number | Used to store the endpoints returned by `getOracles`                                      |
+| `allOracles` | number | All of the endpoints found in the Zap contracts to be passed into the `OracleMarketTable` |
+
+## Expected Behavior
+
+Should only be accessible once the user in confirmed to have "logged in" using some W3 provider / enabled Ethereum wallet.
+Should be mobile responsive (aka stays user friendly despite viewport size)

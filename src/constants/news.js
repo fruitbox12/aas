@@ -1,0 +1,88 @@
+const zapOfficialAvatar = "https://cdn-images-1.medium.com/fit/c/72/72/1*SjqaMSKcYv72wfaIGBC3sg.jpeg";
+const justinAvatar = "https://cdn-images-1.medium.com/fit/c/72/72/1*omysZnsUb-kErilYfqmeMA.jpeg";
+const stefanAvatar = "https://cdn-images-1.medium.com/fit/c/72/72/1*5W2cTJEqCM_yIvck8JnLvA.jpeg";
+export const NEWS = [
+  {
+    title: "Zap Partners with the UConn School of...",
+    description: "Every year, the University of Connecticut School of Engineering partners with hundreds of industry leading companies and government…",
+    url: "https://medium.com/the-zap-project/zap-partners-with-the-uconn-school-of-engineering-to-advance-decentralized-finance-defi-2514b7ad2559",
+    imgUrl: "https://miro.medium.com/max/1400/1*85YV-fCaJONUWA49X0EJ-g.png",
+    author: "Zap Protocol Official",
+    avatarImgUrl: zapOfficialAvatar,
+    date: "Sep 29",
+  },
+  {
+    title: "Zap August Update 2020",
+    description: "Zap Protocol Hosts its First AMA! Many More to Come!",
+    url: "https://medium.com/the-zap-project/zap-august-update-2020-60b982234537",
+    imgUrl: "https://miro.medium.com/max/1400/0*XqfVJsWBTDTfywTf",
+    author: "Zap Protocol Official",
+    avatarImgUrl: zapOfficialAvatar,
+    date: "Aug 21",
+  },
+  {
+    title: "Reddit Community Q3 2020 AMA Recap",
+    description: "Thank you for submitting questions to the Reddit Community AMA.",
+    url: "https://medium.com/the-zap-project/reddit-community-q3-2020-ama-recap-d3c30ca46b95",
+    imgUrl: "https://miro.medium.com/max/1400/1*L-2Jh-zNN3ccsUx37JQwfQ.png",
+    author: "Justin Diclemente",
+    avatarImgUrl: justinAvatar,
+    date: "Aug 28",
+  },
+  {
+    title: "Zap Protocol Expands Token Access with New ZAP/USDT Pair on Bitrue",
+    description: "The Zap utility token, providing access to the decentralized Zap protocol, can now be acquired by exchanging Tether (USDT) through a…",
+    url: "https://medium.com/the-zap-project/zap-protocol-expands-token-access-with-new-zap-usdt-pair-on-bitrue-56c8eba7e59d",
+    imgUrl: "https://miro.medium.com/max/1400/1*Pj2HAb8EF9iURWMbBxAAsw.png",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "Aug 20",
+  },
+  {
+    title: "Zap July Update 2020",
+    description: "Zap Protocol and DIVI Project Partner to Create Zap Wrapped Divi",
+    url: "https://medium.com/the-zap-project/zap-july-update-2020-24d0c1a23389",
+    imgUrl: "https://miro.medium.com/max/1400/0*v64NzPQzAnfOTg1p",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "Jul 31",
+  },
+  {
+    title: "Zap June Update 2020",
+    description: "Protocol Growth: New Front-End Development Begins",
+    url: "https://medium.com/the-zap-project/zap-june-update-2020-96c6815d2492",
+    imgUrl: "https://miro.medium.com/max/1400/0*fZ7r2zrdLr5KrMBj",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "Jul 1",
+  },
+  {
+    title: "Zap April/May Update 2020",
+    description: "First CoinGecko Oracle Test Phase Finalized, Initial Oracle Offering Date & Time to Come",
+    url: "https://medium.com/the-zap-project/zap-april-may-update-2020-ddb7e66b5b09",
+    imgUrl: "https://miro.medium.com/max/1400/1*4GFLpcaCmfBdXVDex128UQ.png",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "Jul 1",
+  },
+  {
+    title: "Zap Supports Tokenomics by Helping Businesses Create Decentralized Platforms to Trade Their Own Crypto Tokens, and Much More",
+    description: "The Zap Protocol was recently featured in an article by CardRates.com which detailed to their readers how our decentralized tools enable businesses to modernize various aspects of their operations using blockchain technology, smart contracts, and bonding curves.",
+    url: "https://medium.com/the-zap-project/zap-supports-tokenomics-by-helping-businesses-create-decentralized-platforms-to-trade-their-own-d0a8d03abf44",
+    imgUrl: "https://miro.medium.com/max/1160/1*fVhKPypRkawAphNheFWkFw.jpeg",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "May 28",
+  },
+  {
+    title: "Zap March Update 2020",
+    description: "Fighting COVID-19 and other infectious diseases with Yerevan State Medical University and CoinGecko API development integration beginning.",
+    url: "https://medium.com/the-zap-project/zap-march-update-2020-5412e8928438",
+    imgUrl: "https://miro.medium.com/max/1400/0*n-gY5dAgTp_s4Rnh",
+    author: "Stefan Furris",
+    avatarImgUrl: stefanAvatar,
+    date: "Apr 2",
+  },
+
+];
+

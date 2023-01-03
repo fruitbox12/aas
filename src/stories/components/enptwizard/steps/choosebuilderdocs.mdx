@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/Endpoint Wizard/Steps/Choose Builder" />
+
+# Choose Curve Builder
+
+<br />
+
+## Use
+
+This component allows the user to select how they would like to initialize their bonding curve.
+
+## Implementation
+
+Takes in the function that allows the user to change the curve builder (`ChangeBuilder` in the `Wizard`). <br />
+Logic is handled by the parent `Wizard` component. This is only a view.
+
+## Expected Behavior
+
+The only way to move forward is to make a selection.
+
+## Rendered Example
+
+[In the `Wizard`](/?path=/story/components-endpoint-wizard-full-wizard--beta)
+
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--beta"} />
+</Canvas>

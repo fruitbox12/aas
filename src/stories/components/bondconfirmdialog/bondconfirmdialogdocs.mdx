@@ -1,0 +1,150 @@
+# Bond Wizard
+
+<br />
+
+## Uses
+
+Thios component allows the user to bond and unbond to a selected endpoint
+
+## Children Components
+
+Imports `ProviderCurveThumbnail` from `src/components/providercurve/ProviderCurveThumbnail`.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   oracleAddress,
+   endpointName
+}
+```
+
+### Symbols to Note
+
+| Variable           | Type            | Purpose                                                                                                    |
+| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------- |
+| `className`        | string          | Custom className for sizing and positioning                                                                |
+| `oracleAddress`    | string          | The address of the endpoint's Oracle                                                                       |
+| `endpointName`     | string          | The name of this endpoint                                                                                  |
+| `actions`          | object          | An enum for what actions the user can do using this component (bond or unbond)                             |
+| `errorMsg`         | object          | An enum for possible error messages to display                                                             |
+| `classes`          | object          | The MUI generated `className`s for styling                                                                 |
+| `mode`             | string          | The action slected by the user to perform                                                                  |
+| `setBondingMode`   | function        | Used to change `mode`                                                                                      |
+| `tsxVals`          | object          | Contains how much Zap and Dots are involved in the transaction                                             |
+| `setTsxVals`       | function        | Used to change `tsxVals`                                                                                   |
+| `inputInvalid`     | object          | Contains wather or not there is an error in the user's input                                               |
+| `setInInvalid`     | function        | Used to change `setInInvalid`                                                                              |
+| `endpt`            | `Oracle` object | The `Oracle` being referre to by `oracleAddress` and `endpointName` in the Redux store                     |
+| `oracleName`       | string          | The name of the Oracle in `endpt`                                                                          |
+| `shorterAddress`   | string          | An abbreviated form of `oracleAddress`                                                                     |
+| `endptDotLimit`    | number          | The last number of the Coefficient Array used to determine the max number of bondable dots for an endpoint |
+| `handleModeToggle` | function        | Used to trigger `setBondingMode` through the buttons                                                       |
+| `handleDotsChange` | function        | Used to trigger `setTsxVals` and `setInInvalid` while validatring the user input                           |
+| `withinDotLimit`   | function        | Used to validate that the amount of Dots the user wants to bond to does not exceed the Dot Limit           |
+| `withinDowsOwned`  | function        | Used to validate that the amount of Dots the user wants to unbond to does not exceed how much they own     |
+| `cardTitleProps`   | object          | Props to give the cards for proper formatting                                                              |
+
+### Enums
+
+For the transaction type:
+
+```JavaScript
+actions = {
+   BOND: "Bond",
+   UNBOND: "Unbond",
+};
+```
+
+For error messages:
+
+```JavaScript
+errorMsg = {
+   ALPHANUM:
+      "Please enter positive whole number values only.",
+   OVERLIMIT:
+      "The amunt you are trying to bond to is over the Dot Limit of this endpoint's bonding curve.",
+   OVERBONDED:
+      "The amount you are trying to unbond is over the amount of Dots you are currently bonded to.",
+   EMPTY:
+      "Please enter a positive whole number values.",
+};
+```
+
+### State Objects
+
+For the transaction type:
+
+```JavaScript
+mode     // A string from `actions`
+```
+
+For the transaction values:
+
+```JavaScript
+tsxVals = {
+   zap,     // Zap cost to bond -OR- Zap to be withdrawn
+   dots,    // Dots to bond -OR- unbond
+}
+```
+
+For error handling:
+
+```JavaScript
+inputInvalid = {
+   err,     // true => there's an invalid input   false => the transaction is valid
+   msg,     // A string from `errorMsg`
+}
+```
+
+## Expected Behavior
+
+### Rendering
+
+The root container is fluid. Restriced only by being palced within a container in a HOC. <br />
+On desktop sized viewports, it will render as 2 columns with the curve data on the left and transaction data on the right. <br />
+On mobile size viewports, it renders as a single column with the components on the left on top and the right on the bottome. <br />
+
+#### Either transaction
+
+The bond/un bond button will appear in the active palette's primary color (`theme.palette.primary.main`) with the custom bond icon.
+When an error is trigerred:
+- the bond/unbond button will be disabled.
+- the input field will be red with the appropriate error message from `errorMsg` displayed nearby.
+
+#### When Bonding
+
+The Zap calculated for the transaction will show `Zap to Bond`. <br />
+The bond/unbond button will show `Bond to Oracle` <br />
+
+#### When Unonding
+
+The Zap calculated for the transaction will show `Zap form Unbond`. <br />
+The bond/unbond button will show `Unbond from Oracle` <br />
+
+### Data Access
+
+Relies on the redux store to retrive the appropriate information concerning the endpoint. <br/>
+Uses the `oracleAddress` and `endpointName` props to find the appropriate object in the store. <br/>
+
+### Input Validation
+
+Inputs are processed by `handleChangeDots`, which uses `setTsxVals`, `setInInvalid`,`withinDotLimit`,and `withinDotsOwned`. <br />
+
+#### Either Transaction
+
+User input cannot be blank. Blank input results in an error showing the message in `errorMsg.EMPTY`. <br />
+User input has to be a whole positive number. Any other inputs result in an error showing the message in `errorMsg.ALPHANUM`. <br />
+
+#### When Bonding
+
+User input cannot cause the total number of dots to be bonded after the transaction be greater than the `Dot Limit`. <br />
+If the `Dot Limit` is potentially surpassed, the error state will be trigerred the message in `errorMsg.OVERLIMIT` will be shown. <br />
+
+#### When Unbonding
+
+User input cannot cause the total number of dots to be unbonded be greater than the number of dots they own. <br />
+If the user attempts to unbond more Dots than they own, the error state will be trigerred the message in `errorMsg.OVERBONDED` will be shown. <br />

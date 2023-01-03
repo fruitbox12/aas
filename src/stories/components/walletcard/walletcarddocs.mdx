@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Wallet Card
+
+<br />
+
+## Uses
+
+This appears in the dashboard so that the user can see their ZAP portfolio break down in a visually intuitive way.
+
+## Children Components
+
+Imports the pie chart breakdown from `src/components/walletcard/walletchart.js`. <br />
+Imports the modal to show the ETH wallet QR code from `src/components/walletcard/qrmodal.js`. <br />
+
+## Implementation
+
+### Props Required
+
+All of which should be provided by some node query from the parent through a web3 connection.
+
+```JavaScript
+props = {
+    address,    // The active ETH wallet address
+    dots,       // The amount of DOTs in the active address
+    eth,        // The amount of ETH in the active address
+    zap         // The amount of ZAP in the active address
+}
+```
+
+Upon mounting, there's an API call to CoinGecko using `useZapPrices()` from `src/api/zapconversions.js`. <br />
+
+### Variables to Note
+
+| Variable          | Type         | Purpose                                                                     |
+| ----------------- | ------------ | --------------------------------------------------------------------------- |
+| `address`         | string       | The active ETH wallet address                                               |
+| `className`       | string       | Custom `className` passed in from parent                                    |
+| `dots`            | number       | The amount of DOTs in the active address                                    |
+| `eth`             | number       | The amount of ETH in the active address                                     |
+| `zap`             | number       | The amount of ZAP in the active address                                     |
+| `toUsd`           | number       | USD value of 1 ZAP                                                          |
+| `toEth`           | number       | ETH value of 1 ZAP                                                          |
+| `zapPriceError`   | boolean      | Tells if there was an issue calling the CoinGecko API                       |
+| `zapPriceLoading` | boolean      | If the call to the CoinGecko API is being waited on                         |
+| `openQr`          | boolean      | Tells if the QR code modal should be open                                   |
+| `setOpenQr`       | function     | Sets the state of `openQr                                                   |
+| `handleQrOpen`    | function     | Uses `setOpenQr` to open the QR code modal                                  |
+| `handleQrClose`   | function     | Uses `setOpenQr` to close the QR code modal                                 |
+| `iconSpace`       | number       | Sets the `<Grid>` column spacing for the icons in the numerical breakdown   |
+| `valSpace`        | number       | Sets the `<Grid>` column spacing for the strings in the numerical breakdown |
+| `ethUsdPrice`     | number       | USD value of 1 ETH                                                          |
+| `shorter`         | string       | Truncated version of `address`                                              |
+| `ethVal`          | number       | USD value of `eth`                                                          |
+| `zapVal`          | number       | USD value of `zap`                                                          |
+| `dotsVal`         | number       | USD value of `dots`                                                         |
+| `chartData`       | number array | For the pie chart break wallet down                                         |
+
+## Expected Behavior
+
+Clicking the truncated address under the pie char copies `address` to the users' system's clipboard. <br />
+The CoinGecko API should be called every so often so that prices are updated close to real-time. <br />
+Pressing the button with `Send Tokens`, `Get QR Code`, and `Get ZAP` should open the appropriate modals. <br />
+Fluid to parent container but can be overridden by parent styles and custom `className` <br />

@@ -1,0 +1,29 @@
+# Bond Wizard Page
+
+<br />
+
+## Uses
+
+This is page lets the user bond and unbond specific endpoint by an Oracle.
+
+## Children Components
+
+`Page` from `src/components/Page.js` wraps the whole view. <br />
+`Header` from `src/views/bondwizard/header.js` serves as visual sugar for page navigation. <br />
+`BondWizard` from `src/components/bondwizard.js` for the user to bond and unbond to the Oracle endpoint. <br />
+
+## Implementation
+
+Serves as a view for the dashboard. <br />
+Follows the format followed by the other dashboard views:
+
+-  The whole view is wrapped by a `Page` component.
+-  A Material UI `Container` wraps everything inside `Page`.
+-  A `Header` specific to this view is at the top of the page.
+-  There's a Material UI `Paper` component serving as a background.
+
+## Expected Behavior
+
+Should only be accessible once the user in confirmed to have "logged in" using some W3 provider / enabled Ethereum wallet. <br />
+For desktop viewport sizes, the top of the page is split between the bonding curve and current stats of the end point. <br />
+For mobile viewport sizes, all of the components fall into a single column. <br />

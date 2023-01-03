@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/Endpoint Wizard/Steps/Drag Curve Builder" />
+
+# Drag Curve Builder
+
+<br />
+
+## Uses
+
+This component allows the user to input the coefficient array by dragging a bezier curve to create their desired bonding curve.
+
+## Children Components
+
+`BezierCurve` _component file location tbd_
+
+## Implementation
+
+Takes in a callback function (`handleDragCurve` in the `Wizard`) to pass updates the state in the `Wizard` and displays
+the rendered curve using the `BezierCurve` component. <br />
+Logic is handled by the parent `Wizard` component. This is only a view. <br />
+Accessible and editable fields:
+
+| In the `Wizard`'s state | Field in the UI | 
+|---|---|
+| curveArray | the `BezierCurve` | 
+
+## Expected Behavior
+
+Only accessible if the user chooses to use this builder. <br />
+Produces a default positive linear curve.
+
+## Rendered Example
+
+[In the `Wizard`](/?path=/story/components-endpoint-wizard-full-wizard--gamma)
+
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--gamma"} />
+</Canvas>

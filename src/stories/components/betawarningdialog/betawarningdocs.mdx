@@ -1,0 +1,35 @@
+# Beta Warning Dialog
+
+<br />
+
+## Uses
+
+This component is a disclaimer stating that the current state of the dApp might not be the most secure. Continuation is at the user's discretion
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   open,
+   handleClose
+}
+```
+
+### Symbols to Note
+
+| Variable      | Type     | Purpose                                           |
+| ------------- | -------- | ------------------------------------------------- |
+| `className`   | string   | Custom className for sizing and positioning       |
+| `open`        | boolean  | Controls if the dialog should appear              |
+| `handleClose` | function | Callback function for hwo the dialog should close |
+
+## Expected Behavior
+
+View is fluid. Restriced only by being palced within a container in a HOC. <br />
+There's two buttons, one to continue to the new UI, the other leads to the legacy UI. <br />
+Going to the old UI happens in another tab and nothing else happens in the new UI besides continued loading. <br />
+Accepting the risks allows the user to continue interacting with the dApp. <br />
+The user must click on a button to interact.

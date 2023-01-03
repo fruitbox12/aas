@@ -1,0 +1,51 @@
+<!--- Logo.stories.mdx -->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/ZAP Logo" />
+
+# ZAP Logo
+
+<br />
+
+## Uses
+
+The ZAP Logo appears in the navigation bars of the splash screen and dashboard.
+
+## Implementation
+
+Imports the png logo from `public/static/images`. <br/>
+Uses Material UI's `isWidthUp` to see if the view port is wide enough to support the full logo with text. <br/>
+Uses Material UI's `useTheme` to see if the theme used has `pallette.type` of `dark` or `light`. <br/>
+
+## Expected Behavior
+
+### Based on Viewport
+
+While the view port is at least `md` (`960px`) wide, the full logo is displayed. <br/>
+While the view port is at smaller than `md`, the icon-only logo is displayed. <br/>
+
+### Based on Theme Type
+
+While the current `pallette.type` is `dark`, the logo with light text will render. <br/>
+While the current `pallette.type` is `light`, the logo with dark text will render. <br/>
+
+## Renderings
+
+### `lg` viewport with a `light` type theme
+
+<Canvas>
+   <img height={"50px"} src={require("public/static/darkzaplogo.png")} />
+</Canvas>
+
+### `lg` viewport with a `dark` type theme
+
+<Canvas style={{background: '#000000'}}>
+   <img height={"50px"} src={require("public/static/lightzaplogo.png")} />
+</Canvas>
+
+### `md` viewpoert on any theme type
+
+<Canvas>
+   <img height={"50px"} src={require("public/static/zaplogo.png")} />
+</Canvas>

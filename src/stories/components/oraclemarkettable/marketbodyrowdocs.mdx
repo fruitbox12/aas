@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Market Body Row
+
+<br />
+
+## Uses
+
+This component is a table row for the marketplace for the user to easily compare and interpret data concerning the marketplace.
+
+## Children Components
+
+Imports the colored label from `src/components/oraclemarkettable/marketheadercell.js`. <br />
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   name,
+   bound,
+   price,
+   issued,
+   limit,
+   markdownLink,
+   jsonLink,
+   coefficientArr,
+}
+```
+
+### Symbols to Note
+
+| Variable         | Type         | Purpose                                                     |
+| ---------------- | ------------ | ----------------------------------------------------------- |
+| `name`           | string       | Name of the oracle endpoint                                 |
+| `bound`          | number       | Number of dots currently bound                              |
+| `price`          | number       | Price of each dot in Zap                                    |
+| `issued`         | number       |                                                             |
+| `limit`          | number       |                                                             |
+| `markdownLink`   | string       | Link to the endpoint's markdown file                        |
+| `jsonLink`       | string       | Link to the endpoint's JSON schema                          |
+| `coefficientArr` | number array | Coefficient array of this specific endpoint's bonding curve |
+| `address`        | string       | The address of the Oracle provider of this endpoint         |
+| `classes`        | number       | The CSS classes created by MUI                              |
+| `open`           | boolean      | Controls if the accordion drop down is open                 |
+| `setOpen`        | function     | Controls the value of `open`                                |
+
+## Expected Behavior
+
+Clicking on a row should open a drop down for more details.

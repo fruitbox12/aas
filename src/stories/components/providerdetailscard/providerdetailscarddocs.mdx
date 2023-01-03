@@ -1,0 +1,34 @@
+# Provider Details Card
+
+<br />
+
+## Uses
+
+Used to show relevant user information concerning the respective oracle in the oracle profile page.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   providerAddress,
+   providerName,
+   numEndpts,
+}
+```
+
+### Symbols to Note
+
+| Variable          | Type   | Purpose                                           |
+| ----------------- | ------ | ------------------------------------------------- |
+| `className`       | string | Custom className for sizing and positioning       |
+| `providerAddress` | string | The address of the relevant provider              |
+| `providerName`    | string | The name/title of the provider                    |
+| `numEndpts`       | number | The number of endpoints provided by this provider |
+
+## Expected Behavior
+
+View is fluid. Restriced only by being palced within a container in a HOC.<br />
+Dispaly is as a table within a card.

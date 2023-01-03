@@ -1,0 +1,38 @@
+# Oracle Endpoint List Card
+
+<br />
+
+## Uses
+
+This component shows the marketplace viewer all of the endpoints of a specific oracle in a tabular view.
+
+## Children Compoonents
+
+Imports `OracleMarketTable` from `src/components/oraclemarkettable`.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+    className,
+    oracleName,
+    oracleAddress,
+    oracleData,
+}
+```
+
+### Symbols to Note
+
+| Variable         | Type              | Purpose                                           |
+| ---------------- | ----------------- | ------------------------------------------------- |
+| `className`      | string            | Custom className for sizing and positioning       |
+| `oracleName`     | string            | Name of the specific provider                     |
+| `oracleAddress`  | string            | Address of the specific provider                  |
+| `oracleData`     | array of `Oracle` | Array of `Oracle` objects to dispaly in the table |
+| `shorterAddress` | string            | Truncated version of `oracleAddress`              |
+
+## Expected Behavior
+
+Clicking the title containing the `oracleName` and `shorterAddress` opens a new tab showing the oracle's etherscan page.

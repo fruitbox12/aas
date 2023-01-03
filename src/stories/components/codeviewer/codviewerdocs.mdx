@@ -1,0 +1,31 @@
+# Code Viewer
+
+<br />
+
+## Uses
+
+This component allows the user to view things such as code or endpoint JSON schema in a typical monospaced font
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   code,
+}
+```
+
+### Symbols to Note
+
+| Variable    | Type   | Purpose                                     |
+| ----------- | ------ | ------------------------------------------- |
+| `className` | string | Custom className for sizing and positioning |
+| `name`      | string | The code to dispaly                         |
+
+## Expected Behavior
+
+View is fluid. Restriced only by being palced within a container in a HOC. <br />
+The code wraps so that there is no horizontal overflow or need for a scroll bar. <br />
+If nothing displayable is passed through `file`, `None provided` is shown. <br />

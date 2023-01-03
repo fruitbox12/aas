@@ -1,0 +1,20 @@
+<svg width="162" height="162" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="162" height="162">
+<ellipse cx="80.7028" cy="81.0658" rx="80.6566" ry="80.6447" fill="#3C3C3D"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M55.6192 5.99378L13.6646 0.973572L0.755514 17.4685L-24.7041 118.231L41.6343 164.13L90.0435 118.231L55.6192 5.99378Z" fill="#3C3C3D"/>
+<path d="M160.326 164.847L192.958 116.08L85.7404 64.4434L78.9272 147.277L160.326 164.847Z" fill="#0078FE"/>
+<path d="M32.6699 -5.48096L83.5892 78.7868L178.973 121.817L184.71 115.363L164.271 3.84228L32.6699 -5.48096Z" fill="#61CFFF"/>
+<path d="M80.9451 76.3845L130.292 161.843H31.5981L80.9451 76.3845Z" fill="white"/>
+<ellipse cx="80.7922" cy="81.1551" rx="67.3801" ry="67.3701" fill="white"/>
+</g>
+<ellipse cx="80.7033" cy="80.8383" rx="61.2546" ry="61.2456" fill="url(#paint0_linear)"/>
+<path d="M78.8081 88.7939V87.727H77.7412H62.7417L83.9454 48.4342V73.0586V74.1255H85.0123H99.2896L78.8081 113.299V88.7939Z" fill="white" stroke="white" stroke-width="2.13379"/>
+<defs>
+<linearGradient id="paint0_linear" x1="80.7033" y1="19.5928" x2="80.7033" y2="142.084" gradientUnits="userSpaceOnUse">
+<stop stop-color="#61D0FF"/>
+<stop offset="1" stop-color="#0078FE"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,31 @@
+# MArkdown Viewer
+
+<br />
+
+## Uses
+
+This component allows the user to view markdown in a user friendly format.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   file,
+}
+```
+
+### Symbols to Note
+
+| Variable    | Type   | Purpose                                     |
+| ----------- | ------ | ------------------------------------------- |
+| `className` | string | Custom className for sizing and positioning |
+| `file`      | string | Path to the markdown file to display        |
+
+## Expected Behavior
+
+View is fluid. Restriced only by being palced within a container in a HOC. <br />
+Markdown should render in the same way as it does in the docs pages. <br /> 
+If nothing displayable is passed through `file`, `None provided` is shown. 

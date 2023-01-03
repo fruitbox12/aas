@@ -1,0 +1,31 @@
+# Add Provider Modal
+
+<br />
+
+## Uses
+
+This component informs the user that they need a Web3 provider.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,
+   open,
+   handleClose
+}
+```
+
+### Symbols to Note
+
+| Variable      | Type     | Purpose                                                                 |
+| ------------- | -------- | ----------------------------------------------------------------------- |
+| `className`   | string   | Custom className for sizing and positioning                             |
+| `open`        | boolean  | Path to the markdown file to display                                    |
+| `handleClose` | function | A call back function that sets `open` to false so that the modal closes |
+
+## Expected Behavior
+
+View is restriced to MUI's `sm` size since there is not that much content to be shown.

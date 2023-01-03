@@ -1,0 +1,36 @@
+<!--- endptwizardpage.stories.mdx -->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import EndpointWizardView from "../../../views/endpointwizard/index.js";
+
+<Meta title="MDX/Endpoint Wizard" component={EndpointWizardView} />
+
+# New Endpoint Wizard
+
+<br />
+
+## Uses
+
+This is page the user goes to for listing a new oracle for the ZAP marketpalce.
+
+## Children Components
+
+`Page` from `src/components/Page.js` wraps the whole view. <br />
+`Header` from `src/views/endpointwizard/header.js` serves as visual sugar for page navigation. <br />
+`Wizard` from `src/views/endpointwizard/wizard` is the component the user interacts with to list a new oracle end point
+
+
+## Implementation
+
+Serves as a view for the dashboard. <br />
+Follows the format followed by the other dashboard views: 
+- The whole view is wrapped by a `Page` component.
+- A Material UI `Container` wraps everything inside `Page`.
+- A `Header` specific to this view is at the top of the page.
+- The "main component" (in this case the `Wizard`) is wrapped in a Material UI `Box`.
+- There's a Material UI `Paper` component serving as a background.
+
+## Expected Behavior
+
+Should only be accessible once the user in confirmed to have "logged in" using some W3 provider / enabled Ethereum wallet.
+Should be mobile responsive (aka stays user friendly despite viewport size)

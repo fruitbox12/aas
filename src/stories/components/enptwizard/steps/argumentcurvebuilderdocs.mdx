@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="MDX/Endpoint Wizard/Steps/Argument Curve Builder" />
+
+# Argument Curve Builder
+
+<br />
+
+## Uses
+
+This component allows the user to manually input the coefficient array to create their desired bonding curve.
+
+## Children Components
+
+`BezierCurve` _component file location tbd_
+
+## Implementation
+
+Takes in the coefficient array (`curveArray` in the `Wizard`) and displays the rendered curve using the `BezierCurve`
+component. <br />
+Logic is handled by the parent `Wizard` component. This is only a view. <br />
+Accessible and editable fields:
+
+| In the `Wizard`'s state | Field in the UI | 
+|---|---|
+| curveArray | Argument Array | 
+
+
+## Expected Behavior
+
+
+Only accessible if the user chooses to use this builder.
+Empty arrays produce no curve.
+Only a valid array lets the user move to the next page
+
+## Rendered Example
+
+[In the `Wizard`](/?path=/story/components-endpoint-wizard-full-wizard--delta)
+<Canvas>
+   <Story id={"components-endpoint-wizard-full-wizard--delta"} />
+</Canvas>

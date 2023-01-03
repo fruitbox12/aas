@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Particles
+
+<br />
+
+## Uses
+
+Serves as the animated 3D background of `Hero`.
+Serves as the container for the 3D assets.
+
+## Children Components
+
+_Currently_ imports assets from `src/views/pages/HomeView/3d/Sample.js`.
+
+## Implementation
+
+There is a transparent layer on top so that the `Hero` component does not get "lost" in the animation. 
+The layer color is dictated by `theme.palette.background.dark` when using `makeStyles`.
+
+## Expected Behavior
+
+Resizes with the viewport for a seamless and mobile friendly experience.
+
+## Rendered Example
+
+[Just the Hero](?path=/story/views-pages-home-view-particles--alpha)
+
+<Canvas>
+   <Story id={"views-pages-home-view-particles--alpha"} />
+</Canvas>

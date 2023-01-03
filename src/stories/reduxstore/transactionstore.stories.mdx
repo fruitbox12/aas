@@ -1,0 +1,57 @@
+<Meta title="Redux Store/Transactions" />
+
+# Transactions in the Redux Store
+
+## Storage Method
+
+Stored as an array of object such that:
+
+```JavaScript
+[
+    Transaction object,
+    .
+    .
+    .
+]
+```
+
+## To Access
+
+```JavaScript
+const allTransactions = useSelector((state) => state.transactions.transactions);
+```
+
+## Actions to Dispatch
+
+Found in `src/actions/transactionActions.js`
+
+| function       | redux type      | description                                                                   |
+| -------------- | --------------- | ----------------------------------------------------------------------------- |
+| `getTransactions`   | `GET_TRANSACTIONS`   | Called to query the blockchain for all available Zap oracles to store locally |
+| `clearTransactions` | `CLEAR_TRANSACTION` | Forces the store to dump all data concerning oracles from the store           |
+
+## Action Descriptions
+
+All of the following return an object of:
+
+```JavaScript
+{
+    type,
+    payload,
+}
+```
+
+| field     | type     | description                                                              |
+| --------- | -------- | ------------------------------------------------------------------------ |
+| `type`    | string   | Used to distinguish what actions are being performed on the redux store. |
+| `payload` | not null | The changes to add to / override the store depending on the reducer/     |
+
+### GET_ORACLES
+
+The `payload` is an array of `Transaction` objects created from processing query results from the blockchain.
+
+### CLEAR_ORACLES
+
+The `payload` is an empty array of `Transaction` objects.
+
+The reducer makes a replacement of the current store with an empty array to clear it.

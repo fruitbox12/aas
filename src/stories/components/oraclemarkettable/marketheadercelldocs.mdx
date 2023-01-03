@@ -1,0 +1,59 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+# Market Header Cell
+
+<br />
+
+## Uses
+
+This component is a table header and allows the user to change the sorting of the data in the table.
+
+## Implementation
+
+### Props Required
+
+```JavaScript
+props = {
+   className,           // a custom className
+   createSortHandler,   // a call back function to change the sorting method
+   disablePadding,      // enables compact mode if true
+   id,                  // the category to sort the data by
+   label,               // name of the category to display
+   numeric,             // if the category is numeric
+   order,               // direction of the sorting
+   orderBy,             // category the data is currently being sorted by
+}
+```
+
+### Symbols to Note
+
+| Variable                  | Type         | Purpose                                                                                  |
+| ------------------------- | ------------ | ---------------------------------------------------------------------------------------- |
+| `className`               | string       | Custom className for sizing and positioning                                              |
+| `createSortHandler`       | function     | Call back function to change the sorting method to use the `id` in this cell             |
+| `disablePadding`          | boolean      | Controls compact mode for this cell                                                      |
+| `id`                      | string       | Category to sort the data by                                                             |
+| `label`                   | string       | Name of the category to be displayed                                                     |
+| `numeric`                 | boolean      | Controls `left` vs `right` alignment based on if the column contains numerical data      |
+| `order`                   | string       | Direction of sorting (`"asc"` or `"desc"`)                                               |
+| `orderBy`                 | string       | Which column to sort by given the selected header cell                                   |
+
+
+## Expected Behavior
+
+Clicking on it once will change the sorting category to what is stored in `id`. <br />
+A second click changes the direction of the sorting. <br/>
+An arrow will appear only if the current sort category is the on stored in `id`. <br />
+
+
+## N.B.
+These stories will only show hard coded states due to a lack of call back functions. <br/>
+For a usable rendering, please check the rendered examples below.
+
+## Rendered Example
+
+[In the `OracleMarketTable`](?path=/story/components-oracle-market-table-whole-table--alpha)
+
+<Canvas>
+   <Story id={"components-oracle-market-table-whole-table--alpha"} />
+</Canvas>

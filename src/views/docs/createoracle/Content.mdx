@@ -1,0 +1,351 @@
+import image1 from 'src/views/docs/createoracle/8444DF58-6E79-43BA-B9D9-FDB19D2E3129_4_5005_c.jpeg';
+import image2 from 'src/views/docs/createoracle/086BD6FB-7B2B-42C3-B330-48C5B6C63CAE_4_5005_c.jpeg';
+import image3 from 'src/views/docs/createoracle/3456E74E-9830-4754-87C6-1D7AE946F5C4.png';
+
+# Create an Oracle with Zap Protocol
+
+[https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle](https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle)
+
+The Zap platform has a unique set of tools to ensure that creating an Oracle is as simple as possible. This section shows how users can easily create their own Endpoints for their Oracle.
+
+​Zap-Oracle-Template
+
+This example demonstrates how to access the [ZAP-ORACLE-TEMPLATE](https://github.com/zapproject/zap-oracle-template.git)​ repository. The following utilizes the zap.js packages to create an oracle from scratch.
+
+
+Setting up Oracle dir
+
+<img src={image1} alt="Image alt" />
+
+​**Layout:**
+
+
+
+1. Config: data about your wallet, ethereum node, provider's public key, and title.
+2. Schema: Your oracle's Endpoint list with their parameters and pre-defined. query/response schema.
+3. Oracle: Template for Create/Manage flow.
+4. Responder: Stub callback function when query event is received, and return result.
+
+If an address does not have an Oracle initiated, a new oracle and Endpoint will be created when the yarn ```start``` is running.
+
+# **Running  Zap Oracle**
+
+
+# Change config.ts with your Zap Oracle's information and implement a response method.
+
+
+
+<img src={image2} alt="Image alt" />
+
+** Congrats, you have successfully created an oracle and start listening to query as well as providing responses to subscribers**
+
+## **Zap Oracle Template**
+
+[https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/zap-oracle-template](https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/zap-oracle-template)
+
+Zap-oracle-template provides an almost-ready code to have your Oracle and Endpoint setup and running from ground up in a couple simple steps.
+
+There are only two components to be filled out : Config.ts and Responder.ts and the template will perform all necessary step to register Oracle, create Endpoint, Set parameters, even save information about Endpoint to ipfs and save the hash to Oracle's params to be displayed in Oracle Market Cap or Zap Admin site. Giving Oracle more visibility to users. ( If you have existing Oracle and Endpoint, this step will automatically ignored)
+
+After creating and setting up Oracle and Endpoint, template code will start listening to queries, get data with logic in Responder.ts and automatically respond to query.
+
+Upon completing setup and run, you will have an Oracle that provides data without any manual management.
+
+## **INSTALLATION**
+
+Set up oracle directory
+
+
+SETUP
+
+
+### **Config**
+
+**Config.ts id** is used to configure Zap Oracles, if configuration was not already executed through Zap-term or Zap Admin. If Zap Oracle is not yet initialized, config.ts is where Oracle.ts gets the information to set up the current working Oracle. It requires the Oracle Title, public key, node websocket link, and the mnemonic key for the address running the Oracle.
+
+### **Oracle.ts**
+
+If editing the Config.ts does not provide sufficient customization, the Oracle.ts may be edited to meet the customization requirements. However, this is done in uncommon circumstances. Oracle.ts initializes the Zap Oracle and Endpoints if not already executed, and runs the Zap Oracle Endpoints as if they have been given functionality. Additionally, Oracle.ts parses incoming events from the Zap Contracts and returns responses to them, allowing for subscribers to query Zap Oracles.
+
+
+### **Responder.ts**
+
+This is the method  to determine the Zap Oracle’s functionality. It is given that the event parameter always maintains the same key-value data type.  \
+ \
+From this event, the query and Endpoint parameters can be parsed out in order to form a response, which should be in the form of an array of either strings, integers, or bytes32.
+
+
+```export async function getResponse(query:string, params?:string[]|[]){
+ // Implement your logic to decide what data to return for this query
+   return ["some result"]
+}```
+
+# RUNNING ORACLE
+
+
+### **Congratulations, you have successfully created an oracle and start listening to query as well as providing responses to subscribers. Make sure to leave it running as a daemon, as it will only respond to queries while it is running.**
+
+
+## **Subscription-Oracle Template**
+
+**[https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/subscription-oracle-template](https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/subscription-oracle-template)**
+
+**Help data provider creating subscription Oracle's Endpoint. **
+
+Introduction
+
+**Subscription Oracle template serves as a bootstrap tool for data providers to setup and run their service in minutes.**
+
+**Purpose : to provide a subscription service based on Zap Oracle platform to manage subscriptions and distribute information through authenticated websocket connections.**
+
+
+## **Workflow**
+
+**_This workflow has been provided in the template , following information explains how things works within source code_**
+
+**_ORACLE_**
+
+## **_USER_**
+
+_This template also includes a bootstrap for users to utilize their Ethereum address to authenticate and connect to data received from the subscription to the Zap Oracle's Endpoint._
+
+
+
+<!--
+
+
+
+
+
+
+
+## **_USER_**
+
+_This template also includes a bootstrap for users to utilize their Ethereum address to authenticate and connect to data received from the subscription to the Zap Oracle's Endpoint._
+
+<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image32.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+<img src={image3} alt="Image alt" />
+
+
+
+## 
+
+<p id="gdcalert33" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image33.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image33.png "image_tooltip")
+
+
+
+## 
+
+<p id="gdcalert34" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image34.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image34.png "image_tooltip")
+
+
+Setup
+
+
+
+*   **<code>yarn</code></strong>
+*   Create <code>priv_config.ts</code> based on <code>config.ts</code> template with Oracle's information
+*   In <code>src/server.ts</code> modify method <code>getData</code> to receive custom data, this data will be broadcasted to users.
+
+
+### <strong>Run Server:</strong>
+
+
+
+*   **<code>yarn server</code></strong>
+
+
+### <strong>User Connecting to server:</strong>
+
+
+
+*   In `src/user.ts` modify signature, address and endpoint
+*   **<code>yarn user</code></strong>
+
+<strong>[Source Code](https://github.com/zapproject/websocket-oracle-template)</strong>
+
+
+## **Onchain Oracle Template**
+
+[https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/onchain-provider-template](https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/onchain-provider-template)
+
+Here we provide a [template](https://zapproject.gitbook.io/zapproject/oracles/creating-first-oracle/onchain-provider-template) of an On-chain provider interface for use in deploying multiparty Oracles or wrapping arbitrary onchain logic.
+
+
+## 
+
+<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image35.png "image_tooltip")
+
+
+
+## Constructor
+
+This function takes in the Zap Coordinator, as well as the intended public key and title. It then calls the Zap Token registry contract to add the smart contract into the Zap database as a new oracle.
+
+
+## Initialize Curve
+
+The Initialize Curve function sets the pricing curve within the smart contract for the Oracle and initializes an endpoint. For more information on how to set up the array the contract takes in as a parameter, please review the Curve Encoding section. Towards the beginning of the script, registry is redefined by the Zap Coordinator, in case the Zap Token Contract has updated. The coordinator will fetch the updated address which will be used for future reference.
+
+
+##  \
+ \
+Set Provider Parameter \
+
+
+Sets any key-value pair for the provider, which normally is some asset that needs to be known by the subscriber.
+
+
+## Set Endpoint Params
+
+Set up the Endpoint parameters for the endpoint. These parameters will determine how the Oracle will retrieve an answer from queries made to the smart contract.
+
+
+## Receive
+
+The way the Zap's Dispatch Contract calls on the Oracle Contract. Parameters for this function are standardized. Similar to the registry contracts, the dispatch contract is updated whenever the receive function is called. After the receive function is called, the contract should generate a response to the query and call dispatch.respond(). It should be noted that the response types are in the form of  one to four strings, an integer array, or a bytes32 array.
+
+ \
+
+
+<p id="gdcalert36" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image36.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert37">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image36.png "image_tooltip")
+
+
+
+## **Zap On-Chain Subscription Template \
+**
+
+[https://zapproject.gitbook.io/zapproject/users/templates/templates-1](https://zapproject.gitbook.io/zapproject/users/templates/templates-1)
+
+This [template](https://zapproject.gitbook.io/zapproject/users/templates/templates-1) provides a great use case of Zap, representing data and how users utilize data provided by Zap Oracles to trigger a function/event in their on-chain contracts.
+
+
+##  \
+ \
+ \
+ \
+**Whats On-chain Subscriber**
+
+On-chain subscriber contracts communicate with other Zap contracts and Zap Oracles to query and distribute data. Use cases can range from utilizing data received to settle a prediction speculation with others; calling out other contracts such as voting contracts, surveys, random number generators, or doing calculations with data received and emitting events with the results. On-chain subscriber contracts can achieve an array of functionality to meet numerous blockchain automation needs. \
+ \
+**Workflow**
+
+Requirements:
+
+
+
+*   Owner has to have DOTS bonded to an Endpoint to pay for the query.
+*   On-chain subscriber contracts have to call a query to Endpoint.
+*   On-chain subscriber contracts must implement a `callback` function which will be called by an Oracle.
+
+
+## **Code**
+
+
+## 
+
+<p id="gdcalert37" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image37.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert38">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image37.png "image_tooltip")
+ \
+ \
+**Using Template \
+**
+
+In order to simplify the process of applying custom logic to contracts, a template which includes the majority of the steps in the process is available to get contracts deployed. \
+ \
+**​[Source Code](https://github.com/zapproject/subscriber-template.git)​**
+
+
+### **Setup Environment and Create On-chain Subscriber**
+
+
+
+1. Clone the repo:
+2. `cd subscriber-template`
+3. `yarn`
+4. Edit callback function
+5. Deploy:
+    1. On mainnet : `yarn deploy`
+    2. Or `truffle migrate --network &lt;network name>`
+6. Check for successful contract deployment on chain
+
+
+### **Calling On-chain Subscriber**
+
+Once the contract is deployed on-chain, the function `bond` `queryProvider `will be able to be called
+
+
+## **Zap Off-Chain Subscription Template**
+
+[https://zapproject.gitbook.io/zapproject/users/templates/offchain-subscrier-example](https://zapproject.gitbook.io/zapproject/users/templates/offchain-subscrier-example)
+
+This is a [template](https://zapproject.gitbook.io/zapproject/users/templates/offchain-subscrier-example) for an off-chain subscriber method to listen to data received from Oracles
+
+
+## What's Off-chain Subscriber ? \
+
+
+Off-chain subscriber is a non-contact method that queries data from DOTS received by the Endpoint and Oracle bonded to. It can be in the form of a script queried from the responses received from Oracles through the Ethereum blockchain events or users can manually query and wait to see responses using the Zap-term CLI tool.
+
+ \
+**Template**
+
+The following script includes query calls and anticipates response events:
+
+
+
+<p id="gdcalert38" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image38.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert39">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image38.png "image_tooltip")
+
+
+The subscriber template provides a class that can be set up using the function processResponse, similar to an on-chain subscriber implementing a callback function. The template provides a fully functional off-chain subscriber implementation.
+
+**Using Template \
+ \
+**
+
+<p id="gdcalert39" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image39.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert40">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/image39.png "image_tooltip")
+
+
+
+### **Setup Environment And Create Off-Chain Subscriber**
+
+
+
+1. git clone[ https://github.com/zapproject/subscriber-template.git](https://github.com/zapproject/subscriber-template.git)
+2. cd subscriber-template
+3. cd Offchai_Subscriber_Example
+4. Fill out config file variables such as mnemonic, oracle address, endpoint, query, dots ...
+5. In Simple Subscriber.ts, fill out the body of function processMessage
+6. Make sure you have ZAP Token and $ETH balances in your mnemonic's address
+7. yarn
+8. yarn build
+9. yarn start-off chain
+
+the index.ts file can be modified to include logic on when to trigger the query from the Oracle.
+
+Users can now have a Zap Subscriber that interacts with Zap Contracts and Oracles to receive desired data. 
+
+
+-->

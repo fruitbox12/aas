@@ -1,0 +1,79 @@
+<Meta title="Redux Store/User Info" />
+
+# User in the Redux Store
+
+## Storage Method
+
+Stored as a object such that:
+
+```JavaScript
+{
+      address: string,
+      provider: boolena,
+      bondedTo: object of BondedOracle,
+      ethBalance: number,
+      zapBalance: number,
+}
+```
+
+Each key in `bondedTo` corresponds to a endpoint's address.
+Each value corresponds to an instantiated BondedOracle.
+
+## To Access
+
+```JavaScript
+const allOracles = useSelector((state) => state.user.user);
+```
+
+NB: Need to remove old user reducer for this
+
+## Actions to Dispatch
+
+Found in `src/actions/oracleactions.js`
+
+| function           | redux type           | description                                                                                   |
+| ------------------ | -------------------- | --------------------------------------------------------------------------------------------- |
+| `connectUser`      | `CONNECT_USER`       | Called when the user is attmepting to connect their wallet to the Dapp for access             |
+| `getWallet`        | `GET_WALLET`         | Gets the contents of the active wallet                                                        |
+| `getBondedOracles` | `GET_BONDED_ORACLES` | Get a list or oracles the active wallet is bonded to and how many dots they have for each one |
+| `endSession`       | `END_SESSION`        | Called when logging out of the Dapp to clear session data                                     |
+
+## Action Descriptions
+
+All of the following return an object of:
+
+```JavaScript
+{
+    type,
+    payload,
+}
+```
+
+| field     | type   | description                                                              |
+| --------- | ------ | ------------------------------------------------------------------------ |
+| `type`    | string | Used to distinguish what actions are being performed on the redux store. |
+| `payload` |        | The changes to add to / override the store depending on the reducer/     |
+
+### CONNECT_USER
+
+The `payload` is an object of the connect wallet's address as a string.
+
+The reducer adds it to the `user` object in the store.
+
+### GET_WALLET
+
+The `payload` is an object of 2 numbers: the ETH balance and the ZAP balance.
+
+The reducer adds it to the `user` object in the store.
+
+### GET_BONDED_ORACLES
+
+The `payload` is array of `BondedOracle` objects created from processing query results from the blockchain.
+
+The reducer iterates through the returned array to add to the store as an object since each endpoint would have a unique address that can act as a key, similar to how the oracles are stored.
+
+### END_SESSION
+
+The `payload` is null.
+
+The reducer reverts the `user` field of the store to the initial state.
